@@ -24,4 +24,9 @@ public class AppConfigInitializer implements AppConfiguration {
 
 	}
 
+	public void register() {
+		// TODO Auto-generated method stub
+
+	}
+
 }

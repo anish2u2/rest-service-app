@@ -9,6 +9,7 @@ import org.service.app.boot.AppBootInitializer;
 import org.service.app.contracts.boot.InitApp;
 import org.service.app.logger.Logger;
 import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.DispatcherServlet;
 
 /**
@@ -27,14 +28,16 @@ public class AppDispatcherServlet extends DispatcherServlet {
 
 	private InitApp appInitializer;
 
-	{
-		appInitializer = new AppBootInitializer();
-	}
+	/*
+	 * { appInitializer = new AppBootInitializer(); }
+	 */
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 		super.init(config);
+		appInitializer = WebApplicationContextUtils.findWebApplicationContext(config.getServletContext())
+				.getBean(InitApp.class);
 		Logger.info("Dispatcher Servlet Initialized..");
 		Logger.info("Now initializing App Configurations.");
 		appInitializer.init();

@@ -10,7 +10,7 @@
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing 
 		infrastructure -->
-
+	<!-- <context:property-placeholder location="classpath:app.properties" /> -->
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 	<context:component-scan
@@ -24,4 +24,6 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".html" />
 	</beans:bean>
+
+
 </beans:beans>

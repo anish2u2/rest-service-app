@@ -1,23 +1,27 @@
 package org.service.app.annotations;
 
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.springframework.stereotype.Component;
+import org.springframework.core.annotation.AliasFor;
+import org.springframework.web.bind.annotation.Mapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+//@Inherited
 @Target({ ElementType.TYPE, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
-@Component
+@org.springframework.web.bind.annotation.RequestMapping
 public @interface RequestMapping {
+	
+	
+	RequestMethod[] method() default RequestMethod.GET;
 
-	enum RequestType {
-		GET, POST, HEAD, TRACE, DELETE, PUT, OPTION
-	}
+	@AliasFor(value = "path")
+	String[] value() default "";
 
-	RequestType method() default RequestType.GET;
-
-	String value() default "NULL";
-
+	@AliasFor(value = "value")
+	String[] path() default "";
 }
