@@ -1,13 +1,13 @@
 package org.service.app.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.service.app.annotations.RequestMapping;
+import org.service.app.annotations.RequestMapping.RequestType;
 
-@org.springframework.stereotype.Controller
+@org.service.app.annotations.Controller
 @RequestMapping(value = "/home.html")
 public class Controller {
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestType.GET)
 	public String home() {
 		System.out.println("Returning home.");
 		return "index";

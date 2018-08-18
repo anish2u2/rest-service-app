@@ -14,7 +14,7 @@
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 	<context:component-scan
-		base-package="org.service.app.controllers" />
+		base-package="org.service.app.controllers,org.service.app.annotations" />
 	<resources mapping="/WEB-INF/views/**"
 		location="/WEB-INF/views/" />
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 

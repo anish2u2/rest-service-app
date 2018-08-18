@@ -1,7 +1,9 @@
 package org.service.app.config;
 
+import org.service.app.annotations.Bean;
 import org.service.app.contracts.config.AppConfiguration;
 
+@Bean
 public class AppConfigInitializer implements AppConfiguration {
 
 	private String configFileName;

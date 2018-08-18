@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filter-config version="0.1">
+	<super-filter-class class="">
+		<register-filter-type class-type="" />
+		<url-pattern>
+			*.html,*.jsp,*.api,*.js,*.image
+		</url-pattern>
+	</super-filter-class>
+</filter-config>

@@ -1,1 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<init-app-config version="0.1">
+	<filter-config file="" />
+	<processor-config file="" />
+	<mvc-controllers-config file="" />
+</init-app-config>

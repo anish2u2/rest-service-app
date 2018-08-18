@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc-controller-config version="0.1">
+	<mvc-controller-registrar class="" />
+	<mvc-annotation-type annotation-class="" />
+</mvc-controller-config>

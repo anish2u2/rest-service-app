@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<processor-config version="0.1">
+	<super-pre-processor class="">
+		<register-processor-type class-type="" />
+		<method-type>
+			GET,POST,DELETE,TRACE,OPTIONS,PUT
+		</method-type>
+	</super-pre-processor>
+	<super-post-processor class="">
+		<register-processor-type class-type="" />
+		<method-type>
+			GET,POST,DELETE,TRACE,OPTIONS,PUT
+		</method-type>
+	</super-post-processor>
+</processor-config>

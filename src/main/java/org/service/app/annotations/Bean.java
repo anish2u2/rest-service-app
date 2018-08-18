@@ -5,15 +5,18 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import org.springframework.stereotype.Component;
+
 /**
- * This will represents as Controller for the app classes.
+ * This will represents bean annotation for creating beans for the app
+ * container.
  * 
  * @author Anish
  *
  */
-@Target({ ElementType.TYPE })
+@Target(value = ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@org.springframework.stereotype.Controller
-public @interface Controller {
+@Component
+public @interface Bean {
 
 }
