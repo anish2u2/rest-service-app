@@ -5,9 +5,9 @@ import org.service.app.annotations.Get;
 @org.service.app.annotations.Controller
 public class Controller {
 
-	@Get(value="/home.html")
+	@Get(value = "/home.html")
 	public String home() {
-		System.out.println("Returning home.");
+
 		return "index";
 	}
 

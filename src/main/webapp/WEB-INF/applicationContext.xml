@@ -20,9 +20,7 @@
 	<context:component-scan
 		base-package="org.service.app" />
 	<context:annotation-config />
-	<!-- <beans:bean id="appBootInit" class="org.service.app.boot.AppBootInitializer"> 
-		</beans:bean> -->
-	<!-- <beans:bean id="configInit" class="org.service.app.config.AppConfigInitializer"> 
-		<beans:property name="configFileName" value="${app.boot.init.config.file.location}"> 
-		</beans:property> </beans:bean> -->
+
+	<beans:bean id="appFilter"
+		class="org.service.app.filters.manager.AppFilterManager"></beans:bean>
 </beans:beans>
