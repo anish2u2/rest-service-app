@@ -21,4 +21,13 @@ import org.springframework.stereotype.Component;
 @Component
 public @interface Bean {
 
+	/**
+	 * This will indicate the bean id for registering with
+	 * application/webapplication context.
+	 * 
+	 * @return
+	 */
+	//@AliasFor(value = "value")
+	String value() default "";
+
 }

@@ -7,10 +7,10 @@
 	<display-name>spring-mvc-example</display-name>
 
 	<!-- Add Spring MVC DispatcherServlet as front controller -->
-	<context-param>
+	<!-- <context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/rest-servlet.xml</param-value>
-	</context-param>
+	</context-param> -->
 	<servlet>
 		<servlet-name>spring</servlet-name>
 		<servlet-class>org.service.app.dispatcher.AppDispatcherServlet</servlet-class>

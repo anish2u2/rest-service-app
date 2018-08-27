@@ -9,17 +9,13 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-	<context:property-placeholder
-		location="classpath:app.properties" />
 
-	<beans:import resource="hibernateConfig.xml" />
-	<beans:import resource="app-beans.xml" />
-	<beans:import resource="dao-beans.xml" />
-	<beans:import resource="service-beans.xml" />
-	<beans:import resource="job-beans.xml" />
-	<context:component-scan
-		base-package="org.service.app" />
-	<context:annotation-config />
 
-	<!-- <beans:bean id="appFilter" class="org.service.app.filters.manager.AppFilterManager"></beans:bean> -->
+
+
+
+
+
+
+
 </beans:beans>

@@ -16,11 +16,20 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.service.app.annotations.Bean;
 import org.service.app.contracts.filter.AppFilter;
 import org.service.app.logger.Logger;
 import org.service.app.request.RequestSupport;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+/**
+ * This Class is responsible for registering filters and managing filters.
+ * 
+ * @author Anish
+ *
+ */
+
+@Bean("appFilter")
 public class AppFilterManager implements Filter {
 
 	private Collection<AppFilter> appFilters;
