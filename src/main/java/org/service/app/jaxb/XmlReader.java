@@ -16,7 +16,7 @@ public class XmlReader implements Reader {
 	private XmlReader() {
 
 	}
-
+	
 	public static Reader getReader() {
 		if (reader == null) {
 			reader = new XmlReader();

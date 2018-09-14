@@ -21,5 +21,12 @@
 		base-package="org.service.app" />
 	<context:annotation-config />
 
+	<beans:bean id="messageSource"
+		class="org.service.app.util.MessageBundle">
+		<beans:property name="basename">
+			<beans:value>locale\customer\messages</beans:value>
+		</beans:property>
+	</beans:bean>
+
 	<!-- <beans:bean id="appFilter" class="org.service.app.filters.manager.AppFilterManager"></beans:bean> -->
 </beans:beans>

@@ -25,5 +25,4 @@
 		<beans:property name="suffix" value=".html" />
 	</beans:bean>
 
-
 </beans:beans>

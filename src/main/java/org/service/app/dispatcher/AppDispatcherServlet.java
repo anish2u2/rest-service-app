@@ -5,7 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.service.app.boot.AppBootInitializer;
+import org.service.app.config.jaxb.elements.AppInitConfig;
 import org.service.app.contracts.boot.InitApp;
 import org.service.app.logger.Logger;
 import org.springframework.context.ApplicationContext;
@@ -25,6 +25,8 @@ public class AppDispatcherServlet extends DispatcherServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 13534634L;
+
+	private AppInitConfig appInitConfig;
 
 	private InitApp appInitializer;
 
@@ -46,25 +48,27 @@ public class AppDispatcherServlet extends DispatcherServlet {
 
 	@Override
 	protected void onRefresh(ApplicationContext context) {
-		// TODO Auto-generated method stub
 		super.onRefresh(context);
 	}
 
 	@Override
 	protected void initStrategies(ApplicationContext context) {
-		// TODO Auto-generated method stub
 		super.initStrategies(context);
 	}
 
 	@Override
+	protected void doDispatch(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
+		
+		super.doDispatch(arg0, arg1);
+	}
+
+	@Override
 	protected void noHandlerFound(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
 		super.noHandlerFound(request, response);
 	}
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
 		super.destroy();
 	}
 

@@ -13,4 +13,6 @@ public interface InitApp {
 	 */
 	public void init();
 	
+	
+	
 }
