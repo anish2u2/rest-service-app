@@ -36,11 +36,41 @@
 		</init-param>
 		<load-on-startup>2</load-on-startup>
 	</servlet>
+	<servlet>
+		<servlet-name>AxisServlet</servlet-name>
+		<servlet-class>org.apache.axis2.transport.http.AxisServlet
+		</servlet-class>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>rest</servlet-name>
 		<url-pattern>/api/</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/services/</url-pattern>
+	</servlet-mapping>
+	<mime-mapping>
+		<extension>inc</extension>
+		<mime-type>text/plain</mime-type>
+	</mime-mapping>
 
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>/axis2-web/index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/axis2-web/Error/error404.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/axis2-web/Error/error500.jsp</location>
+	</error-page> 
+	
 	<filter>
 		<filter-name>App Filter Dispatcher</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>

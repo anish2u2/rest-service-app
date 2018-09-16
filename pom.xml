@@ -13,8 +13,272 @@
 		<hibernate-version>4.2.18.Final</hibernate-version>
 		<jboss-resteasy>4.0.0.Beta4</jboss-resteasy>
 		<jms-api>1.1-rev-1</jms-api>
+		<apache.axis2.version>1.7.3</apache.axis2.version>
+		<apache.rampart.version>1.7.0</apache.rampart.version>
 	</properties>
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-antrun-plugin -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-antrun-plugin</artifactId>
+			<version>1.8</version>
+		</dependency>
+
+		<!-- Axis2 dependency -->
+		<!-- =================================== -->
+		<!-- Axis2 1.7.3 Dependencies -->
+		<!-- =================================== -->
+
+		<dependency>
+			<artifactId>axis2</artifactId>
+			<groupId>org.apache.axis2</groupId>
+			<version>${apache.axis2.version}</version>
+			<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<artifactId>axis2-spring</artifactId>
+			<groupId>org.apache.axis2</groupId>
+			<version>${apache.axis2.version}</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>axis2-codegen</artifactId>
+			<groupId>org.apache.axis2</groupId>
+			<version>${apache.axis2.version}</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>axis2-kernel</artifactId>
+			<groupId>org.apache.axis2</groupId>
+			<version>${apache.axis2.version}</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>axis2-adb</artifactId>
+			<groupId>org.apache.axis2</groupId>
+			<version>${apache.axis2.version}</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>axis2-adb-codegen</artifactId>
+			<groupId>org.apache.axis2</groupId>
+			<version>${apache.axis2.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-transport-http</artifactId>
+			<version>${apache.axis2.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-transport-local</artifactId>
+			<version>${apache.axis2.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-jaxws</artifactId>
+			<version>${apache.axis2.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-clustering</artifactId>
+			<version>${apache.axis2.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-transport-tcp</artifactId>
+			<version>${apache.axis2.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>addressing</artifactId>
+			<version>${apache.axis2.version}</version>
+			<type>mar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>soapmonitor</artifactId>
+			<version>${apache.axis2.version}</version>
+			<type>mar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>scripting</artifactId>
+			<version>${apache.axis2.version}</version>
+			<type>mar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>mex</artifactId>
+			<version>${apache.axis2.version}</version>
+			<type>mar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>ping</artifactId>
+			<version>${apache.axis2.version}</version>
+			<type>mar</type>
+		</dependency>
+
+		<!-- =================================== -->
+		<!-- Axiom Dependencies -->
+		<!-- =================================== -->
+
+		<dependency>
+			<groupId>org.apache.ws.commons.axiom</groupId>
+			<artifactId>axiom-api</artifactId>
+			<version>1.2.19</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.ws.commons.axiom</groupId>
+			<artifactId>axiom-impl</artifactId>
+			<version>1.2.19</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.ws.commons.axiom</groupId>
+			<artifactId>axiom-dom</artifactId>
+			<version>1.2.19</version>
+		</dependency>
+
+		<!-- End -->
+		<!-- rampart -->
+		<dependency>
+			<groupId>org.apache.rampart</groupId>
+			<artifactId>rampart-core</artifactId>
+			<version>${apache.rampart.version}</version>
+			<scope>runtime</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.opensaml</groupId>
+					<artifactId>opensaml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.santuario</groupId>
+					<artifactId>xmlsec</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcprov-jdk15on</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>stax</groupId>
+					<artifactId>stax-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.rampart</groupId>
+			<artifactId>rampart-policy</artifactId>
+			<version>${apache.rampart.version}</version>
+			<scope>runtime</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.opensaml</groupId>
+					<artifactId>opensaml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.santuario</groupId>
+					<artifactId>xmlsec</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcprov-jdk15on</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>stax</groupId>
+					<artifactId>stax-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.rampart</groupId>
+			<artifactId>rampart-trust</artifactId>
+			<version>${apache.rampart.version}</version>
+			<scope>runtime</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.opensaml</groupId>
+					<artifactId>opensaml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.santuario</groupId>
+					<artifactId>xmlsec</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcprov-jdk15on</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>stax</groupId>
+					<artifactId>stax-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.rampart</groupId>
+			<artifactId>rampart</artifactId>
+			<version>${apache.rampart.version}</version>
+			<type>mar</type>
+			<exclusions>
+				<exclusion>
+					<groupId>org.opensaml</groupId>
+					<artifactId>opensaml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.santuario</groupId>
+					<artifactId>xmlsec</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcprov-jdk15on</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>stax</groupId>
+					<artifactId>stax-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.rampart</groupId>
+			<artifactId>rahas</artifactId>
+			<version>${apache.rampart.version}</version>
+			<type>mar</type>
+			<exclusions>
+				<exclusion>
+					<groupId>org.opensaml</groupId>
+					<artifactId>opensaml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.santuario</groupId>
+					<artifactId>xmlsec</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>bcprov-jdk15on</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>stax</groupId>
+					<artifactId>stax-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- End -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -35,6 +299,11 @@
 			<artifactId>spring-context</artifactId>
 			<version>${spring-version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -42,6 +311,7 @@
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -121,10 +391,145 @@
 			<artifactId>commons-digester</artifactId>
 			<version>2.1</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
 		<finalName>app</finalName>
+		<!-- =================================== -->
+		<!-- Maven plugin for war -->
+		<!-- =================================== -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.axis2</groupId>
+				<artifactId>axis2-mar-maven-plugin</artifactId>
+				<version>1.4.1</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<nonFilteredFileExtensions>
+						<nonFilteredFileExtension>aar</nonFilteredFileExtension>
+					</nonFilteredFileExtensions>
+					<webResources>
+						<resource>
+							<directory>${basedir}/target/</directory>
+							<targetPath>WEB-INF/services/</targetPath>
+							<includes>
+								<include>**/*.aar</include>
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+
+			<!-- ====================================== -->
+			<!-- Maven plugin for generate-sources -->
+			<!-- ====================================== -->
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/java-gen</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- ================================================= -->
+			<!-- Maven plugin to generate Axis2 archive (aar file) -->
+			<!-- ================================================= -->
+			<plugin>
+                <groupId>org.apache.axis2</groupId>
+                <artifactId>axis2-aar-maven-plugin</artifactId>
+                <version>1.6.2</version>
+                <extensions>true</extensions>
+                <configuration>
+                <!--  Set true  if you want Depending Jar to be included into AAR file-->
+                <includeDependencies>false</includeDependencies>
+                    <aarName>app</aarName>
+                    <outputDirectory>${basedir}/target/services</outputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>aar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- 
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>create axis2 archive (aar) for web service</id>
+						<phase>compile</phase>
+						<configuration>
+							<tasks>
+								<jar destfile="${basedir}/target/app.aar">
+									<fileset dir="${basedir}/src/main/services/app" />
+								</jar>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>ant</groupId>
+						<artifactId>ant-nodeps</artifactId>
+						<version>1.6.5</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			 -->
+			<!-- =============================== -->
+			<!-- Generating Stubs for wsdls -->
+			<!-- =============================== -->
+
+			<plugin>
+				<groupId>org.apache.axis2</groupId>
+				<artifactId>axis2-wsdl2code-maven-plugin</artifactId>
+				<version>${apache.axis2.version}</version>
+				<executions>
+					<!-- RealTimeGroundingService -->
+					<execution>
+						<id>RealTimeGroundingService</id>
+						<goals>
+							<goal>wsdl2code</goal>
+						</goals>
+						<configuration>
+							<wsdlFile>src/main/services/wsdl/App.wsdl</wsdlFile>
+							<databindingName>adb</databindingName>
+							<packageName>org.service.app.ws</packageName>
+							<outputDirectory>src/main/java-gen</outputDirectory>
+							<unpackClasses>true</unpackClasses>
+							<generateServerSide>true</generateServerSide>
+							<flattenFiles>true</flattenFiles>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 
 </project>

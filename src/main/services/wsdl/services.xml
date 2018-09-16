@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceGroup>
+	<service name="NewOperation">
+		<description>VCI Services Gateway</description>
+		<parameter name="useOriginalwsdl">true</parameter>
+		<parameter name="ServiceObjectSupplier" locked="false">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier
+		</parameter>
+		<parameter name="SpringBeanName" locked="false">NewOperation
+		</parameter>
+		<operation name="NewOperation">
+			<messageReceiver
+				mep="http://www.w3.org/ns/wsdl/in-out"
+				class="com.openlane.wss.services.vci2.generated.NewVciServicesMessageReceiverInOut" />
+			<actionMapping>http://services.wss.openlane.com/NewVciServices/getAutoIMSData
+			</actionMapping>
+			<outputActionMapping>http://services.wss.openlane.com/NewVciServices/NewVciServicesPortType/GetAutoIMSDataResponse
+			</outputActionMapping>
+		</operation>
+	</service>
+</serviceGroup>
