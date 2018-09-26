@@ -1,5 +1,6 @@
 package org.service.app.util;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -17,6 +18,7 @@ public class AppThreadLocal {
 
 	{
 		threadLocal = new ThreadLocal<Map<Object, Object>>();
+		threadLocal.set(new HashMap<Object, Object>());
 	}
 
 	private AppThreadLocal() {

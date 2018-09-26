@@ -37,7 +37,7 @@ public class AppConfigInitializer implements AppConfiguration {
 			readConfigFileName();
 		}
 		try {
-			AppThreadLocal.getAppThreadLocal().put("configInstance", reader.read(configFileName, AppInitConfig.class));
+			AppThreadLocal.getAppThreadLocal().put(APP_CONFIGS, reader.read(configFileName, AppInitConfig.class));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

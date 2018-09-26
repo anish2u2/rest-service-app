@@ -28,7 +28,7 @@ public class XmlReader implements Reader {
 	public Object read(String fileName, Class<?> targetClass) throws Exception {
 		JAXBContext context = JAXBContext.newInstance(targetClass);
 		Unmarshaller unmarshaller = context.createUnmarshaller();
-		return unmarshaller.unmarshal(new File(fileName));
+		return unmarshaller.unmarshal(Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName));
 	}
 
 }

@@ -406,25 +406,7 @@
 				<version>1.4.1</version>
 				<extensions>true</extensions>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<nonFilteredFileExtensions>
-						<nonFilteredFileExtension>aar</nonFilteredFileExtension>
-					</nonFilteredFileExtensions>
-					<webResources>
-						<resource>
-							<directory>${basedir}/target/</directory>
-							<targetPath>WEB-INF/services/</targetPath>
-							<includes>
-								<include>**/*.aar</include>
-							</includes>
-						</resource>
-					</webResources>
-				</configuration>
-			</plugin>
+
 
 			<!-- ====================================== -->
 			<!-- Maven plugin for generate-sources -->
@@ -453,27 +435,18 @@
 			<!-- ================================================= -->
 			<!-- Maven plugin to generate Axis2 archive (aar file) -->
 			<!-- ================================================= -->
-			<plugin>
-                <groupId>org.apache.axis2</groupId>
-                <artifactId>axis2-aar-maven-plugin</artifactId>
-                <version>1.6.2</version>
-                <extensions>true</extensions>
-                <configuration>
-                <!--  Set true  if you want Depending Jar to be included into AAR file-->
-                <includeDependencies>false</includeDependencies>
-                    <aarName>app</aarName>
-                    <outputDirectory>${basedir}/target/services</outputDirectory>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>aar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- 
+			<!-- <plugin> <groupId>org.apache.axis2</groupId> <artifactId>axis2-aar-maven-plugin</artifactId> 
+				<version>1.6.2</version> <extensions>true</extensions> <configuration> <includeDependencies>false</includeDependencies> 
+				<aarName>app</aarName> <outputDirectory>${basedir}/target/services</outputDirectory> 
+				<fileSets> <fileSet> <includes> <include>src/main/services/app/META-INF/*.xml</include> 
+				<include>src/main/services/app/META-INF/*.xsd</include> <include>src/main/services/app/META-INF/*.wsdl</include> 
+				</includes> </fileSet> </fileSets> </configuration> <executions> <execution> 
+				<phase>prepare-package</phase> <goals> <goal>aar</goal> </goals> </execution> 
+				</executions> </plugin> -->
+			<!-- ================================================= -->
+			<!-- Maven plugin to generate Axis2 archive (aar file) -->
+			<!-- ================================================= -->
+
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
@@ -500,8 +473,6 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-
-			 -->
 			<!-- =============================== -->
 			<!-- Generating Stubs for wsdls -->
 			<!-- =============================== -->
@@ -518,16 +489,41 @@
 							<goal>wsdl2code</goal>
 						</goals>
 						<configuration>
-							<wsdlFile>src/main/services/wsdl/App.wsdl</wsdlFile>
+							<wsdlFile>src/main/services/app/META-INF/App.wsdl</wsdlFile>
 							<databindingName>adb</databindingName>
 							<packageName>org.service.app.ws</packageName>
 							<outputDirectory>src/main/java-gen</outputDirectory>
 							<unpackClasses>true</unpackClasses>
 							<generateServerSide>true</generateServerSide>
 							<flattenFiles>true</flattenFiles>
+							<namespaceURIs>
+								<namespaceURI>
+									<uri>http://localhost:8081/service-app/services/NewOperation</uri>
+									<packageName>org.service.app.ws</packageName>
+								</namespaceURI>
+							</namespaceURIs>
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<nonFilteredFileExtensions>
+						<nonFilteredFileExtension>aar</nonFilteredFileExtension>
+					</nonFilteredFileExtensions>
+					<webResources>
+						<resource>
+							<directory>${basedir}/target/</directory>
+							<targetPath>WEB-INF/services/</targetPath>
+							<includes>
+								<include>*.aar</include>
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

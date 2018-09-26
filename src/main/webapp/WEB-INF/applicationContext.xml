@@ -17,6 +17,7 @@
 	<beans:import resource="dao-beans.xml" />
 	<beans:import resource="service-beans.xml" />
 	<beans:import resource="job-beans.xml" />
+	<beans:import resource="app-ws-beans.xml" />
 	<context:component-scan
 		base-package="org.service.app" />
 	<context:annotation-config />
@@ -24,7 +25,7 @@
 	<beans:bean id="messageSource"
 		class="org.service.app.util.MessageBundle">
 		<beans:property name="basename">
-			<beans:value>locale\customer\messages</beans:value>
+			<beans:value>app</beans:value>
 		</beans:property>
 	</beans:bean>
 

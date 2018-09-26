@@ -13,22 +13,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "init-app-config")
 public class AppInitConfig {
 
-	@XmlAttribute(name = "version")
 	private String version;
 
-	@XmlElement(name = "filter-config")
 	private ConfigFileLoc filterConfigLoc;
 
-	@XmlElement(name = "processor-config")
 	private ConfigFileLoc processorConfigLoc;
 
-	@XmlElement(name = "mvc-controllers-config")
 	private ConfigFileLoc mvcControllerConfig;
 
 	public String getVersion() {
 		return version;
 	}
-
+	
+	@XmlAttribute(name = "version")
 	public void setVersion(String version) {
 		this.version = version;
 	}
@@ -36,7 +33,8 @@ public class AppInitConfig {
 	public ConfigFileLoc getFilterConfigLoc() {
 		return filterConfigLoc;
 	}
-
+	
+	@XmlElement(name = "filter-config")
 	public void setFilterConfigLoc(ConfigFileLoc filterConfigLoc) {
 		this.filterConfigLoc = filterConfigLoc;
 	}
@@ -44,7 +42,8 @@ public class AppInitConfig {
 	public ConfigFileLoc getProcessorConfigLoc() {
 		return processorConfigLoc;
 	}
-
+	
+	@XmlElement(name = "processor-config")
 	public void setProcessorConfigLoc(ConfigFileLoc processorConfigLoc) {
 		this.processorConfigLoc = processorConfigLoc;
 	}
@@ -52,7 +51,8 @@ public class AppInitConfig {
 	public ConfigFileLoc getMvcControllerConfig() {
 		return mvcControllerConfig;
 	}
-
+	
+	@XmlElement(name = "mvc-controllers-config")
 	public void setMvcControllerConfig(ConfigFileLoc mvcControllerConfig) {
 		this.mvcControllerConfig = mvcControllerConfig;
 	}
