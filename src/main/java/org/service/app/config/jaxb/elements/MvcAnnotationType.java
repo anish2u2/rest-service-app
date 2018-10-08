@@ -10,13 +10,13 @@ import javax.xml.bind.annotation.XmlAttribute;
  */
 public class MvcAnnotationType {
 
-	@XmlAttribute(name = "annotation-class")
 	private String annotationType;
 
 	public String getAnnotationType() {
 		return annotationType;
 	}
 
+	@XmlAttribute(name = "annotation-class")
 	public void setAnnotationType(String annotationType) {
 		this.annotationType = annotationType;
 	}

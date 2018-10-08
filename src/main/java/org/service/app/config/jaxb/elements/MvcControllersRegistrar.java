@@ -10,13 +10,13 @@ import javax.xml.bind.annotation.XmlAttribute;
  */
 public class MvcControllersRegistrar {
 
-	@XmlAttribute(name = "class")
 	private String className;
 
 	public String getClassName() {
 		return className;
 	}
 
+	@XmlAttribute(name = "class")
 	public void setClassName(String className) {
 		this.className = className;
 	}

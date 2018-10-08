@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * This class will be used for injecting beans.
+ * This Annotation will be used for injecting beans.
  * 
  * @author Anish
  *

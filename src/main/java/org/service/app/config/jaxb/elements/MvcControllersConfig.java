@@ -13,19 +13,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "mvc-controller-config")
 public class MvcControllersConfig {
 
-	@XmlAttribute(name = "version")
 	private String version;
 
-	@XmlElement(name = "mvc-controller-registrar")
 	private MvcControllersRegistrar registrar;
 
-	@XmlElement(name = "mvc-annotation-type")
 	private MvcAnnotationType annotationType;
 
 	public String getVersion() {
 		return version;
 	}
 
+	@XmlAttribute(name = "version")
 	public void setVersion(String version) {
 		this.version = version;
 	}
@@ -34,6 +32,7 @@ public class MvcControllersConfig {
 		return registrar;
 	}
 
+	@XmlElement(name = "mvc-controller-registrar")
 	public void setRegistrar(MvcControllersRegistrar registrar) {
 		this.registrar = registrar;
 	}
@@ -42,6 +41,7 @@ public class MvcControllersConfig {
 		return annotationType;
 	}
 
+	@XmlElement(name = "mvc-annotation-type")
 	public void setAnnotationType(MvcAnnotationType annotationType) {
 		this.annotationType = annotationType;
 	}

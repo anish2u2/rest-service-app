@@ -7,9 +7,15 @@ package org.service.app.contracts.config;
  *
  */
 public interface AppConfiguration {
-	
-	public String APP_CONFIGS="APP_CONFIG_INSTANCE";
-	
+
+	public String APP_CONFIGS = "APP_CONFIG_INSTANCE";
+
+	public String APP_FILTER_CONFIG = "APP_FILTER_CONFIG_INSTANCE";
+
+	public String APP_MVC_CONFIG = "APP_MVC_CONFIG_INSTANCE";
+
+	public String APP_PROCESSOR_CONFIG = "APP_PROCESSOR_CONFIG_INSTANCE";
+
 	/**
 	 * sets the configuration file.
 	 * 

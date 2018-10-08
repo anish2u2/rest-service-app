@@ -11,7 +11,14 @@ import javax.xml.bind.annotation.XmlAttribute;
 
 public class ConfigFileLoc {
 
-	@XmlAttribute(name = "file")
 	private String loc;
+
+	public String getLoc() {
+		return loc;
+	}
+	@XmlAttribute(name = "file")
+	public void setLoc(String loc) {
+		this.loc = loc;
+	}
 
 }
