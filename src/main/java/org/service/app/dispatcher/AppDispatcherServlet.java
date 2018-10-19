@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.service.app.config.jaxb.elements.AppInitConfig;
+import org.service.app.configuration.AppConfigurationObjects;
 import org.service.app.contracts.boot.InitApp;
 import org.service.app.logger.Logger;
 import org.springframework.context.ApplicationContext;
@@ -26,7 +27,7 @@ public class AppDispatcherServlet extends DispatcherServlet {
 	 */
 	private static final long serialVersionUID = 13534634L;
 
-	private AppInitConfig appInitConfig;
+	private AppConfigurationObjects appConfigurationObjects;
 
 	private InitApp appInitializer;
 
@@ -43,6 +44,9 @@ public class AppDispatcherServlet extends DispatcherServlet {
 		Logger.info("Dispatcher Servlet Initialized..");
 		Logger.info("Now initializing App Configurations.");
 		appInitializer.init();
+		appConfigurationObjects = AppConfigurationObjects.getAppConfigurationObjects();
+		appConfigurationObjects = appConfigurationObjects.getAppConfigObjectReference();
+		AppConfigurationObjects.destroySingleton();
 		Logger.info("initialization done.");
 	}
 
@@ -58,7 +62,7 @@ public class AppDispatcherServlet extends DispatcherServlet {
 
 	@Override
 	protected void doDispatch(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
-		
+
 		super.doDispatch(arg0, arg1);
 	}
 
