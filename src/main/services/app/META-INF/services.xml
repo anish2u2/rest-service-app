@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serviceGroup>
-	<service name="NewOperation">
-		<description>New OPeration Services Gateway</description>
-		<parameter name="useOriginalwsdl">true</parameter>
-		<parameter name="ServiceObjectSupplier" locked="false">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier
-		</parameter>
-		<parameter name="SpringBeanName" locked="false">newOperationHandler
-		</parameter>
-		<operation name="NewOperation">
-			<messageReceiver
-				mep="http://www.w3.org/ns/wsdl/in-out"
-				class="org.service.app.ws.AppMessageReceiverInOut" />
-			<actionMapping>http://localhost:8081/service-app/services/NewOperation/newOperation
-			</actionMapping>
-			<outputActionMapping>http://localhost:8081/service-app/services/NewOperation/NewOperationResponse
-			</outputActionMapping>
-		</operation>
-	</service>
-</serviceGroup>
+<!--<serviceGroup> <service name="NewOperation"> <description>New OPeration 
+	Services Gateway</description> <parameter name="useOriginalwsdl">true</parameter> 
+	<parameter name="ServiceObjectSupplier" locked="false">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier 
+	</parameter> <parameter name="SpringBeanName" locked="false">newOperationHandler 
+	</parameter> <operation name="NewOperation"> <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" 
+	class="org.service.app.ws.AppMessageReceiverInOut" /> <actionMapping>http://localhost:8080/service-app/services/NewOperation/newOperation 
+	</actionMapping> <outputActionMapping>http://localhost:8080/service-app/services/NewOperation/NewOperationResponse 
+	</outputActionMapping> </operation> </service> </serviceGroup> -->
+<service name="NewOperation" scope="application"
+	targetNamespace="http://localhost:8080/app/">
+	<description>
+		NewOperation
+	</description>
+	<messageReceivers>
+		<messageReceiver
+			mep="http://www.w3.org/2004/08/wsdl/in-only"
+			class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+		<messageReceiver
+			mep="http://www.w3.org/2004/08/wsdl/in-out"
+			class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+	</messageReceivers>
+	<schema schemaNamespace="https://journaldev.com/xsd" />
+	<parameter name="ServiceClass">org.service.app.ws.handler.NewOperationHandler</parameter>
+<!-- 	<parameter name="SpringBeanName" locked="false">newOperationHandler</parameter> -->
+</service>

@@ -395,7 +395,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>app</finalName>
+		<finalName>axis2</finalName>
 		<!-- =================================== -->
 		<!-- Maven plugin for war -->
 		<!-- =================================== -->
