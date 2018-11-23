@@ -9,7 +9,7 @@
 	<name>Service</name>
 	<description>Service</description>
 	<properties>
-		<spring-version>4.3.9.RELEASE</spring-version>
+		<spring-version>5.0.0.RELEASE</spring-version>
 		<hibernate-version>4.2.18.Final</hibernate-version>
 		<jboss-resteasy>4.0.0.Beta4</jboss-resteasy>
 		<jms-api>1.1-rev-1</jms-api>
@@ -395,7 +395,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>axis2</finalName>
+		<finalName>service</finalName>
 		<!-- =================================== -->
 		<!-- Maven plugin for war -->
 		<!-- =================================== -->
