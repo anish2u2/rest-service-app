@@ -29,7 +29,7 @@
 	</listener>
 	<servlet-mapping>
 		<servlet-name>spring</servlet-name>
-		<url-pattern>/ui/</url-pattern>
+		<url-pattern>/ui/*</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -44,7 +44,7 @@
 
 	<servlet-mapping>
 		<servlet-name>rest</servlet-name>
-		<url-pattern>/api/</url-pattern>
+		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
 
 <!--   <display-name>Apache-Axis2</display-name> -->

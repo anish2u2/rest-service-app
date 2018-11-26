@@ -7,7 +7,7 @@ public class Controller {
 
 	@Get(value = "/home.html")
 	public String home() {
-
+		System.out.println("Home controller");
 		return "index";
 	}
 

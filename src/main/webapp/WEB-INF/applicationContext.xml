@@ -28,6 +28,5 @@
 			<beans:value>app</beans:value>
 		</beans:property>
 	</beans:bean>
-
 	<!-- <beans:bean id="appFilter" class="org.service.app.filters.manager.AppFilterManager"></beans:bean> -->
 </beans:beans>
