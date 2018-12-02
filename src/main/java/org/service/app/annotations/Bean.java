@@ -27,7 +27,7 @@ public @interface Bean {
 	 * 
 	 * @return
 	 */
-	//@AliasFor(value = "value")
+	// @AliasFor(value = "value")
 	String value() default "";
 
 }

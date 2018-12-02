@@ -8,13 +8,21 @@
 	<packaging>war</packaging>
 	<name>Service</name>
 	<description>Service</description>
+	<repositories>
+		<repository>
+			<id>java.net-Public</id>
+			<name>Maven Java Net Snapshots and Releases</name>
+			<url>https://maven.java.net/content/groups/public/</url>
+		</repository>
+	</repositories>
 	<properties>
 		<spring-version>5.0.0.RELEASE</spring-version>
 		<hibernate-version>4.2.18.Final</hibernate-version>
-		<jboss-resteasy>4.0.0.Beta4</jboss-resteasy>
+		<jboss-resteasy>3.6.2.Final</jboss-resteasy>
 		<jms-api>1.1-rev-1</jms-api>
 		<apache.axis2.version>1.7.3</apache.axis2.version>
 		<apache.rampart.version>1.7.0</apache.rampart.version>
+		<jackson.version>2.9.2</jackson.version>
 	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-antrun-plugin -->
@@ -329,7 +337,6 @@
 			<artifactId>jaxb-api</artifactId>
 			<version>2.2.11</version>
 		</dependency>
-
 		<!-- begin of hibernate -->
 
 		<dependency>
@@ -402,6 +409,34 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.5</version>
 		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.jboss.resteasy</groupId> <artifactId>resteasy-client</artifactId> 
+			<version>${jboss-resteasy}</version> </dependency> <dependency> <groupId>org.glassfish</groupId> 
+			<artifactId>javax.json</artifactId> <version>1.1.2</version> </dependency> 
+			<dependency> <groupId>org.jboss.resteasy</groupId> <artifactId>resteasy-json-binding-provider</artifactId> 
+			<version>${jboss-resteasy}</version> </dependency> <dependency> <groupId>org.jboss.resteasy</groupId> 
+			<artifactId>resteasy-jackson2-provider</artifactId> <version>${jboss-resteasy}</version> 
+			</dependency> -->
 	</dependencies>
 
 	<build>
