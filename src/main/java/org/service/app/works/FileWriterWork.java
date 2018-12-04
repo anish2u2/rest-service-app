@@ -1,97 +1,78 @@
 package org.service.app.works;
 
-import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.io.OutputStream;
 
 import org.service.app.contracts.services.Work;
-import org.service.app.logger.Logger;
-import org.springframework.web.multipart.MultipartFile;
 
 public class FileWriterWork implements Work {
 
-	private String workTitle;
-
-	private AtomicBoolean haltWork = new AtomicBoolean(false);
-
-	private FileOutputStream fileOutputStream;
-
-	private BufferedInputStream fileInputStream;
-
+	private BufferedOutputStream outputStream;
+	private FileInputStream inputStream;
+	private boolean haltWork;
 	private Object lock = new Object();
 
-	private Object signal = new Object();
-
-	private File dir;
-
-	private MultipartFile multipartFile;
-
-	public FileWriterWork(String title) {
-		this.workTitle = title;
+	public FileWriterWork(OutputStream stream, File file) {
+		try {
+			outputStream = new BufferedOutputStream(stream);
+			inputStream = new FileInputStream(file);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 	public void doWork() {
-		File file = new File(getDir(), getMultipartFile().getOriginalFilename());
-		Logger.info("File Name:" + file.getName());
 		try {
-		getMultipartFile().transferTo(getDir());
-		}catch (Exception e) {
+			while (!this.haltWork) {
+				synchronized (lock) {
+					byte[] data = new byte[1024];
+					if (inputStream.read(data) != -1) {
+						outputStream.write(data);
+					} else {
+						this.haltWork = true;
+						break;
+					}
+				}
+			}
+			// outputStream.flush();
+			// outputStream.close();
+		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+
+			synchronized (this) {
+				this.notify();
+			}
 		}
 	}
 
 	public String getWorkTitle() {
-
-		return this.workTitle;
+		return "[File Writer]";
 	}
 
 	public int getWorkPriority() {
-
-		return 1;
+		return 5;
 	}
 
 	public int workStatus() {
-
 		return 0;
 	}
 
 	public boolean haltWork() {
-		haltWork.set(true);
-		return true;
+		this.haltWork = true;
+		return this.haltWork;
 	}
 
-	public MultipartFile getMultipartFile() {
-		return multipartFile;
-	}
-
-	public void setMultipartFile(MultipartFile multipartFile) {
-		this.multipartFile = multipartFile;
-	}
-
-	public File getDir() {
-		return dir;
-	}
-
-	public void setDir(File dir) {
-		this.dir = dir;
-	}
-
-	public void waitForWorkCompletion() {
+	public void isWorkCompleted() {
 		try {
-			synchronized (signal) {
-				this.signal.wait();
+			synchronized (this) {
+				this.wait();
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			// TODO: handle exception
 		}
-	}
-
-	public void notifyWorkCompletion() {
-		synchronized (signal) {
-			this.signal.notify();
-		}
-
 	}
 }
